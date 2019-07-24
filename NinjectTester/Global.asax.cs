@@ -1,3 +1,6 @@
+using Ninject;
+using Ninject.Web.Mvc;
+using NinjectTester.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +16,10 @@ namespace NinjectTester
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            var registrator = new NinjectRegistrator();
+            var kernel = new StandardKernel(registrator);
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
     }
 }

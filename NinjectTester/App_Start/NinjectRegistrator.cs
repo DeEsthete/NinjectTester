@@ -11,8 +11,8 @@ namespace NinjectTester.App_Start
     {
         public override void Load()
         {
-            Bind<ISender>().To<EmailSender>();
-            //Bind<ISender>().To<SmsSender>();
+            //Bind<ISender>().To<EmailSender>();
+            Bind<ISender>().To<SmsSender>();
         }
     }
 }
